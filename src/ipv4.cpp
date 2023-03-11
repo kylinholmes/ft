@@ -29,15 +29,19 @@ using namespace std::literals;
 // 	return ret;
 // }
 
-auto f(string s) -> pair<uint32_t, uint32_t> {
-    vector<std::uint32_t> ret{ };
+
+/*
+    return pair, first is value, second is errcode
+*/
+auto ipv4_to_u32(string s) -> pair<uint32_t, uint32_t> {
+    vector<std::uint32_t> parts{ };
     uint32_t seg = 0;
     uint32_t seg_len = 0;
 	for(auto& c: s) {
 		if (c == ' ' || c == '.') {
 			if ( seg_len > 0 ) {
                 if (seg < 256)
-    				ret.push_back(seg);
+    				parts.push_back(seg);
                 else 
                     return {0u , ErrCode::overflow_u8};
             }
@@ -56,16 +60,17 @@ auto f(string s) -> pair<uint32_t, uint32_t> {
         }
 	}
 	if (seg_len > 0) 
-		ret.push_back(seg);
+		parts.push_back(seg);
+    
     // for(auto i: ret)
     //     cout << i << " ";
     // cout << endl;
-	if(ret.size() != 4)
+	if(parts.size() != 4)
 		return {0u, ErrCode::err};
 	uint32_t ans = 0;
-    for(auto i=0; i < ret.size(); i++) {
+    for(auto i=0; i < parts.size(); i++) {
         ans *= 256;
-        ans += ret[i];
+        ans += parts[i];
     }
 
 	return {ans, ErrCode::ok};

@@ -13,4 +13,4 @@ enum ErrCode {
     overflow_u8 = 5u,
     overflow_u32 = 6u,
 };
-auto f(std::string s) -> std::pair<uint32_t, uint32_t>;
+auto ipv4_to_u32(std::string s) -> std::pair<uint32_t, uint32_t>;
