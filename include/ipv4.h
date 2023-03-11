@@ -6,6 +6,9 @@
 #include <vector>
 #include <string>
 
+using std::string, std::vector, std::pair;
+// using std::make_pair, std::stoi, std::cout, std::endl;
+using namespace std::literals;
 enum ErrCode {
     ok = 0u,
     err = 3u,

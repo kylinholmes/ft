@@ -7,9 +7,7 @@
 #include <string>
 #include "ipv4.h"
 
-using std::string, std::vector, std::pair;
-// using std::make_pair, std::stoi, std::cout, std::endl;
-using namespace std::literals;
+
 
 // auto split_by_space_dot(string s) -> vector<string> {
 // 	vector<std::uint32_t> ret{};
