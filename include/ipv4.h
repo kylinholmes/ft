@@ -7,7 +7,7 @@
 #include <string>
 
 enum ErrCode {
-    ok = 1u,
+    ok = 0u,
     err = 3u,
     nan = 4u,
     overflow_u8 = 5u,
